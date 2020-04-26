@@ -1,4 +1,5 @@
-import stocks from '../../data/stocks'
+// import stocks from '../../data/stocks'
+import Vue from 'vue'
 
 export default {
     state: {
@@ -19,7 +20,11 @@ export default {
             commit( 'buyStock', order )
         },
         initStocks({ commit }) {
-            commit( 'setStocks', stocks )
+            Vue.prototype.$ibmstock.get().then(res => {
+              const atual = []
+              res.data.quoteResponse.result.map((company, i) => atual.push({id: i + 1, name: company.symbol, price: company.regularMarketPrice}))
+               commit( 'setStocks', atual )
+            })
         },
         ramdomizeStocks({ commit }) {
             commit( 'ramdomizeStocks' )

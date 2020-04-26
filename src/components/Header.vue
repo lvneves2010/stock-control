@@ -13,7 +13,7 @@
     <v-spacer></v-spacer>
 
     <v-toolbar-items>
-      <v-btn flat @click="endDay" >Finalizar Dia</v-btn>
+      <v-btn flat @click="endDay" >Atualizar Cotações</v-btn>
       <v-menu offset-y >
         <v-btn flat slot="activator" >Salvar & carregar</v-btn>
         <v-list>
@@ -44,9 +44,9 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['ramdomizeStocks', 'loadData']),
+    ...mapActions(['ramdomizeStocks', 'loadData', 'initStocks']),
     endDay() {
-      this.ramdomizeStocks()
+      this.initStocks()
     },
     saveData() {
       const { funds, stockPortfolio, stocks } = this.$store.getters

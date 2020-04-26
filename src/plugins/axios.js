@@ -7,7 +7,20 @@ Vue.use({
             baseURL: 'https://stock-trader-5113b.firebaseio.com/'
         }),
         Vue.prototype.$ibmstock = axios.create({
-            baseURL: 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-quotes?region=US&lang=en&symbols=IBM'
+            baseURL: 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-quotes?region=US&lang=en&symbols=IBM,AAPL,MSFT,GOOG',
+            headers: { 'x-rapidapi-key' : '65168846edmsh21b2d55574ca09ep1e2596jsnc7a92555669d' }
+        }),
+        Vue.prototype.$applestock = axios.create({
+            baseURL: 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-quotes?region=US&lang=en&symbols=AAPL',
+            headers: { 'x-rapidapi-key' : '65168846edmsh21b2d55574ca09ep1e2596jsnc7a92555669d' }
+        }),
+        Vue.prototype.$microsftstock = axios.create({
+            baseURL: 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-quotes?region=US&lang=en&symbols=MSFT',
+            headers: { 'x-rapidapi-key' : '65168846edmsh21b2d55574ca09ep1e2596jsnc7a92555669d' }
+        }),
+        Vue.prototype.$googlestock = axios.create({
+            baseURL: 'https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-quotes?region=US&lang=en&symbols=GOOG',
+            headers: { 'x-rapidapi-key' : '65168846edmsh21b2d55574ca09ep1e2596jsnc7a92555669d' }
         })
     }
 })
