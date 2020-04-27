@@ -17,7 +17,7 @@ import Header from "./components/Header";
 export default {
   components: { Header },
   created() {
-    this.$store.dispatch("initStocks");
+    // this.$store.dispatch("initStocks");
   }
 };
 </script>
@@ -33,10 +33,10 @@ export default {
   }
 
   .slide-enter-active {
-    animation: slide-in 0.3s ease;
+    animation: slide-in 0.5s ease;
   }
   .slide-leave-active {
-    animation: slide-out 0.3s ease;
+    animation: slide-out 0.5s ease;
   }
 </style>
 

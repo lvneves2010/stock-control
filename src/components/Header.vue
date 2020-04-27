@@ -29,6 +29,9 @@
         <span class="text-uppercase grey--text text--darken-2">
           Saldo: {{ funds | currency}}
         </span>
+        <span class="text-uppercase ml-3 grey--text text--darken-2">
+          Portfólio: {{ portfolioValue | currency}}
+        </span>
       </v-layout>
     </v-toolbar-items>
   </v-toolbar>
@@ -41,6 +44,9 @@ export default {
   computed: {
     funds() {
       return this.$store.getters.funds
+    },
+    portfolioValue() {
+      return this.$store.getters.portfolioValue
     }
   },
   methods: {

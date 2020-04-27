@@ -5,7 +5,11 @@
         <strong>
           {{ stock.name }}
           <small>
-            (Preço: {{ stock.price | currency }} | Qtde: {{ stock.quantity }})
+            (Preço: {{ stock.price | currency }} | Qtde: {{ stock.quantity }} )
+          </small>
+          <br>
+          <small>
+            Total: {{ stock.price * stock.quantity | currency }}
           </small>
         </strong>
       </v-card-title>

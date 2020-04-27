@@ -20,10 +20,11 @@ export default {
             commit( 'buyStock', order )
         },
         initStocks({ commit }) {
-            Vue.prototype.$ibmstock.get().then(res => {
+            Vue.prototype.$yahooApi.get().then(res => {
               const atual = []
               res.data.quoteResponse.result.map((company, i) => atual.push({id: i + 1, name: company.symbol, price: company.regularMarketPrice}))
                commit( 'setStocks', atual )
+               alert('Cotações atualizadas!!')
             })
         },
         ramdomizeStocks({ commit }) {

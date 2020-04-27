@@ -1,6 +1,7 @@
 export default {
     state: {
         funds: 10000,
+        portfolioValue: 0,
         stocks: []
     },
     mutations: {
@@ -12,17 +13,23 @@ export default {
                 quantity: quantity
             })
             state.funds -= stockPrice * quantity
+            state.portfolioValue += stockPrice * quantity
         },
         sellStock( state, {stockId, quantity, stockPrice} ) {
             const record = state.stocks.find( element => element.id == stockId )
             record.quantity > quantity ?
             record.quantity -= quantity :
             state.stocks.splice( state.stocks.indexOf(record), 1 )
-            state.funds += stockPrice * quantity            
+            state.funds += stockPrice * quantity  
+            state.portfolioValue -= stockPrice * quantity          
         },
         setPortfolio(state, portfolio) {
             state.funds = portfolio.funds
             state.stocks = portfolio.stockPortfolio ? portfolio.stockPortfolio : []
+            const array = portfolio.stockPortfolio.map(p => (p.price * p.quantity))
+            state.portfolioValue = array.reduce((a, n) => {
+                return a += n;
+                }, 0)
         }
     },
     actions: {
@@ -44,6 +51,9 @@ export default {
         },
         funds(state) {
             return state.funds
+        },
+        portfolioValue(state) {
+            return state.portfolioValue
         }
     }
 }
