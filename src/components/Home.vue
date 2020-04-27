@@ -14,7 +14,7 @@
     <v-divider class="my-4"></v-divider>
     <p class="display-1" ><strong>Seu Saldo</strong> {{ funds | currency }} </p>
     <v-divider class="my-4"></v-divider>
-    <p class="display-1" ><strong>O valor do seu porfólio é:</strong> {{ portfolioValue | currency }} </p>
+    <p class="display-1" ><strong>O valor do seu portfólio é:</strong> {{ portfolioValue | currency }} </p>
     <v-divider class="my-4"></v-divider>
     <p class="display-1" ><strong>O valor do seu patrimônio é:</strong> {{ funds + portfolioValue | currency }} </p>
   </div>
